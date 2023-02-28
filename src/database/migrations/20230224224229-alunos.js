@@ -2,6 +2,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('alunos', {
+      // criação dos atributos da tabela
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
