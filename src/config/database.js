@@ -1,3 +1,4 @@
+// migrations é relacionado a alterações no banco de dados
 require('dotenv').config();
 
 module.exports = {
