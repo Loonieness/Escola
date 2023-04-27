@@ -6,6 +6,7 @@ import './src/database';
 
 import express from 'express';
 import homeRoutes from './src/routes/homeRoutes';// home minusculo pois está instanciado
+import userRoutes from './src/routes/userRoutes';// home minusculo pois está instanciado
 
 class App {
   constructor() {
@@ -21,6 +22,7 @@ class App {
 
   routes() {
     this.app.use('/', homeRoutes);
+    this.app.use('/users/', userRoutes);// tudo o que for /user/, é tratado pelo userRoutes
   }
 }
 
