@@ -11,6 +11,21 @@ class UserController {
       });
     }
   }
+
+  //  Index
+  async(req, res) {
+    try {
+
+    } catch (e) {
+      return res.json(null);
+    }
+  }
+
+  //  Show
+
+  // Update
+
+  // Delete
 }
 
 export default new UserController();
