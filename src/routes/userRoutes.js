@@ -6,6 +6,8 @@ import userController from '../controllers/UserController';
 const router = new Router();
 
 router.post('/', userController.store); // o mesmo que CREATE
+router.get('/', userController.index); // trás usuários
+router.get('/:id', userController.show); // trás usuários por ID
 
 export default router;
 
