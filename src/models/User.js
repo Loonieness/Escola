@@ -46,7 +46,9 @@ export default class User extends Model {// parece estranho, mas é a config do 
 
     // ++++++ Antes de salvar, pega a senha, faz um hash dela, coloca no password_hash e envia pro DB ++++++ //
     this.addHook('beforeSave', async (user) => {
-      user.password_hash = await bcryptjs.hash(user.password, 8);
+      if (user.password) {
+        user.password_hash = await bcryptjs.hash(user.password, 8);
+      }
     });
 
     return this;

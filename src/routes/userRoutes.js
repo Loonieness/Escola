@@ -8,6 +8,8 @@ const router = new Router();
 router.post('/', userController.store); // o mesmo que CREATE
 router.get('/', userController.index); // trás usuários
 router.get('/:id', userController.show); // trás usuários por ID
+router.put('/:id', userController.update);
+router.delete('/:id', userController.delete);
 
 export default router;
 
