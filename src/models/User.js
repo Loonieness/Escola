@@ -53,4 +53,8 @@ export default class User extends Model {// parece estranho, mas é a config do 
 
     return this;
   }
+
+  passwordIsValid(password) {
+    return bcryptjs.compare(password, this.password_hash); // o this já tem o password que o user tá recebendo
+  }
 }

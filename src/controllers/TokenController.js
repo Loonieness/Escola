@@ -1,9 +1,37 @@
+import jwt from 'jsonwebtoken';
 import User from '../models/User';
 
 class TokenController {
-  async index(req, res) {
-    res.json('OK');
+  async store(req, res) {
+    const { email = '', password = '' } = req.body;
+
+    if (!email || !password) {
+      return res.status(401).json({
+        errors: ['Credenciais invalidas'],
+      });
+    }
+
+    const user = await User.findOne({ where: { email } });
+
+    if (!user) {
+      return res.status(401).json({
+        errors: ['Usuário não existe'],
+      });
+    }
+
+    if (!(await user.passwordIsValid(password))) { // se a senha que estou tentando usar for diferenta da que está no banco
+      return res.status(401).json({
+        errors: ['Senha inválida'],
+      });
+    }
+
+    const id = user; // pegando o id do usuário
+    const token = jwt.sign({ id, email }, process.env.TOKEN_SECRET, {
+      expiresIn: process.env.TOKEN_EXPIRATION,
+    }); // estou anexando o id e o email em um token
+
+    return res.json({ token });
   }
 }
 
-export default new HomeController();
+export default new TokenController();
