@@ -9,7 +9,7 @@ const router = new Router();
 
 // não deveriam existir
 // router.get('/:id', userController.show); // trás usuários por ID
-// router.get('/', userController.index); // trás usuários
+router.get('/', userController.index); // trás usuários
 
 router.post('/', userController.store); // o mesmo que CREATE
 router.put('/', loginRequired, userController.update); // pega usuário e muda
