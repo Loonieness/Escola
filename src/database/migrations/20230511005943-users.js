@@ -3,7 +3,7 @@ module.exports = {
     await queryInterface.createTable('users', {
       // criação dos atributos da tabela
       id: { // adicionaremos e apagaremos o aluno por esse id
-        //absolutamwnte nada
+        // absolutamwnte nada
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
