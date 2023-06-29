@@ -18,6 +18,7 @@ module.exports = {
     'import/first': 'off',
     'no-param-reassign': 'off',
     'max-len': 'off',
+    camelcase: 'off',
 
   },
 };
