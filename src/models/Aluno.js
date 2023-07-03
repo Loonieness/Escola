@@ -67,4 +67,8 @@ export default class Aluno extends Model {// parece estranho, mas é a config do
     }); // chama o init do pai
     return this;
   }
+
+  static associate(models) {
+    this.hasMany(models.Foto, { foreignKey: 'aluno_id' });
+  }
 }

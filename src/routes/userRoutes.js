@@ -11,7 +11,7 @@ const router = new Router();
 // router.get('/:id', userController.show); // trás usuários por ID
 // router.get('/', userController.index); // trás usuários
 
-router.post('/', userController.store); // o mesmo que CREATE
+router.post('/', loginRequired, userController.store); // o mesmo que CREATE
 router.put('/', loginRequired, userController.update); // pega usuário e muda
 router.delete('/', loginRequired, userController.delete); // deleta o usuário
 

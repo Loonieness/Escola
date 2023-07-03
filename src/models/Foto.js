@@ -1,6 +1,7 @@
 import Sequelize, { Model } from 'sequelize';
+import appConfig from '../config/appConfig';
 
-export default class Aluno extends Model {// parece estranho, mas é a config do sequelize
+export default class Foto extends Model {// parece estranho, mas é a config do sequelize
   static init(sequelize) {
     super.init({
       originalname: {
@@ -21,6 +22,12 @@ export default class Aluno extends Model {// parece estranho, mas é a config do
             args: [3, 255],
             msg: 'Campo não pode ficar vazio.',
           },
+        },
+      },
+      url: {
+        type: Sequelize.VIRTUAL,
+        get() {
+          return `${appConfig.url}/images/${this.getDataValue('filename')}`;
         },
       },
     }, {
